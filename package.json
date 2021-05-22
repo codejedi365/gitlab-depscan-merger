@@ -1,7 +1,28 @@
 {
   "name": "gitlab-depscan-merger",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
+  "bin": {
+    "depscan-merger": "dist/cli.min.js"
+  },
+  "main": "dist/cli.min.js",
+  "files": [
+    "dist/cli.min.js"
+  ],
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "format": "run-s \"test:lint:ts -- --fix\" \"test:lint:md -- --write\"",
+    "test": "run-s test:*",
+    "test:lint": "run-p test:lint:*",
+    "test:lint:ts": "eslint . --ext .ts --cache",
+    "test:lint:md": "prettier --check **/*.md",
+    "test:unit": "",
+    "prepare": "npm run build",
+    "prepublishOnly": "run-s build test:*",
+    "watch": "webpack --watch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/codejedi365/gitlab-depscan-merger.git"
@@ -14,10 +35,27 @@
     "monorepo",
     "ci"
   ],
+  "engines": {
+    "node": ">=12.22",
+    "npm": ">=7.0"
+  },
   "author": "codejedi365",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codejedi365/gitlab-depscan-merger/issues"
   },
-  "homepage": "https://github.com/codejedi365/gitlab-depscan-merger#readme"
+  "homepage": "https://github.com/codejedi365/gitlab-depscan-merger#readme",
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-webpack-plugin": "^2.5.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.0",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "yargs": "^17.0.1"
+  }
 }
