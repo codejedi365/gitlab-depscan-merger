@@ -1,0 +1,23 @@
+{
+  "name": "gitlab-depscan-merger",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codejedi365/gitlab-depscan-merger.git"
+  },
+  "keywords": [
+    "gitlab",
+    "dependency",
+    "audit",
+    "scan",
+    "monorepo",
+    "ci"
+  ],
+  "author": "codejedi365",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codejedi365/gitlab-depscan-merger/issues"
+  },
+  "homepage": "https://github.com/codejedi365/gitlab-depscan-merger#readme"
+}
