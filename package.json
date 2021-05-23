@@ -1,7 +1,7 @@
 {
   "name": "gitlab-depscan-merger",
   "version": "0.1.0",
-  "description": "",
+  "description": "Merger for multiple GitLab dependency scanning reports",
   "bin": {
     "depscan-merger": "dist/cli.min.js"
   },
@@ -40,6 +40,7 @@
     "npm": ">=7.0"
   },
   "author": "codejedi365",
+  "contributors": [],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codejedi365/gitlab-depscan-merger/issues"
