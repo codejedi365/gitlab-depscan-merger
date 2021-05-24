@@ -11,7 +11,7 @@ function buildConfig(env) {
     output: {
       path: path.resolve(
         __dirname,
-        path.dirname(thisModule.main) === "."
+        /^\.{1,2}|\/$/.test(path.dirname(thisModule.main))
           ? "dist"
           : path.dirname(thisModule.main)
       ),

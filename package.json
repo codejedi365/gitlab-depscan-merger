@@ -10,17 +10,18 @@
     "dist/cli.min.js"
   ],
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
+    "build": "npm run --silent build:prod --",
+    "build:watch": "npm run --silent build:prod -- --watch",
     "build:prod": "webpack --mode=production --node-env=production",
-    "format": "run-s \"test:lint:ts -- --fix\" \"test:lint:md -- --write\"",
+    "lint": "npm run --silent test:lint --",
+    "format": "npm run --silent test:lint -- --fix",
     "test": "run-s test:*",
-    "test:lint": "run-p test:lint:*",
-    "test:lint:ts": "eslint . --ext .ts --cache",
-    "test:lint:md": "prettier --check **/*.md",
-    "test:unit": "",
-    "prepare": "npm run build",
+    "test:lint": "eslint . --ext ts,js,md,mdx",
+    "test:unit": "jest --runInBand",
+    "test:security:dependencies": "npm audit --audit-level=moderate",
+    "test:stale": "npm outdated",
     "prepublishOnly": "run-s build test:*",
+    "unit-test-watch": "npm run --silent test:unit -- --watch",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -47,16 +48,32 @@
   },
   "homepage": "https://github.com/codejedi365/gitlab-depscan-merger#readme",
   "devDependencies": {
+    "@types/node": "^15.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-mdx": "^1.13.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-webpack-plugin": "^2.5.4",
+    "jest": "^26.6.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
+    "remark-lint-alphabetize-lists": "^3.0.0",
+    "remark-lint-no-dead-urls": "^1.1.0",
+    "remark-preset-lint-consistent": "^4.0.0",
+    "remark-preset-lint-markdown-style-guide": "^4.0.0",
+    "remark-preset-lint-recommended": "^5.0.0",
+    "remark-preset-prettier": "^0.4.1",
+    "schema-merge": "gitlab:gitlab-org/security-products/security-report-schemas#semver:^14.0.1",
     "ts-loader": "^9.1.2",
     "typescript": "^4.2.4",
     "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0"
-  },
-  "dependencies": {
+    "webpack-cli": "^4.7.0",
+    "webpack-shebang-plugin": "^1.1.4",
     "yargs": "^17.0.1"
   }
 }
