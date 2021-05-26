@@ -28,9 +28,9 @@ function buildConfig(env) {
     module: {
       rules: [
         {
-          test: /\.(ts)$/i,
+          test: /(?<!\.test)\.(ts)$/i,
           loader: "ts-loader",
-          exclude: ["/node_modules/"],
+          exclude: ["/node_modules/", "test/", "__tests__/"],
         }
       ],
     },
