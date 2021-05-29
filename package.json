@@ -16,7 +16,7 @@
     "lint": "npm run --silent test:lint --",
     "format": "npm run --silent test:lint -- --fix",
     "test": "run-s test:*",
-    "test:lint": "eslint . --ext ts,js,md,mdx",
+    "test:lint": "eslint . --ext ts,js,json,md,mdx,.remarkrc",
     "test:unit": "jest --runInBand",
     "test:security:dependencies": "npm audit --audit-level=moderate",
     "test:stale": "npm outdated",
