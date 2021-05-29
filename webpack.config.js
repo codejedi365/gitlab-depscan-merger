@@ -30,9 +30,9 @@ function buildConfig(env) {
         {
           test: /(?<!\.test)\.(ts)$/i,
           loader: "ts-loader",
-          exclude: ["/node_modules/", "test/", "__tests__/"],
+          exclude: ["/node_modules/", "test/", "__tests__/"]
         }
-      ],
+      ]
     },
     optimization: {
       // minimize & mangle the output files (TerserPlugin w/ webpack@v5)
@@ -41,8 +41,8 @@ function buildConfig(env) {
       usedExports: true
     },
     resolve: {
-      extensions: [".ts", ".js", ".json"],
-    },
+      extensions: [".ts", ".js", ".json"]
+    }
   };
 }
 
