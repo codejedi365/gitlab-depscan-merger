@@ -2,10 +2,29 @@
   "name": "gitlab-depscan-merger",
   "version": "0.1.0",
   "description": "Merger for multiple GitLab dependency scanning reports",
+  "keywords": [
+    "gitlab",
+    "dependency",
+    "audit",
+    "scan",
+    "monorepo",
+    "ci"
+  ],
+  "homepage": "https://github.com/codejedi365/gitlab-depscan-merger#readme",
+  "bugs": {
+    "url": "https://github.com/codejedi365/gitlab-depscan-merger/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codejedi365/gitlab-depscan-merger.git"
+  },
+  "license": "MIT",
+  "author": "codejedi365 <codejedi365@gmail.com> (https://github.com/codejedi365)",
+  "contributors": [],
+  "main": "dist/cli.min.js",
   "bin": {
     "depscan-merger": "dist/cli.min.js"
   },
-  "main": "dist/cli.min.js",
   "files": [
     "dist/cli.min.js"
   ],
@@ -24,29 +43,6 @@
     "unit-test-watch": "npm run --silent test:unit -- --watch",
     "watch": "webpack --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codejedi365/gitlab-depscan-merger.git"
-  },
-  "keywords": [
-    "gitlab",
-    "dependency",
-    "audit",
-    "scan",
-    "monorepo",
-    "ci"
-  ],
-  "engines": {
-    "node": ">=12.22",
-    "npm": ">=7.0"
-  },
-  "author": "codejedi365 <codejedi365@gmail.com>",
-  "contributors": [],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/codejedi365/gitlab-depscan-merger/issues"
-  },
-  "homepage": "https://github.com/codejedi365/gitlab-depscan-merger#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
@@ -83,5 +79,9 @@
     "webpack-cli": "^4.7.0",
     "webpack-shebang-plugin": "^1.1.4",
     "yargs": "^17.0.1"
+  },
+  "engines": {
+    "node": ">=12.22",
+    "npm": ">=7.0"
   }
 }
