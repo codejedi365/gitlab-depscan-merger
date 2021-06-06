@@ -8,16 +8,22 @@ const cli = global.CLI_EXECUTABLE;
 const defaultOutputFilename = "gl-dependency-scanning-complete-report.json";
 const resultsDirectory = path.resolve(__dirname, "__snapshots__");
 const inputFiles = [
-  path.resolve(__dirname, "reports", "input1.json"),
-  path.resolve(__dirname, "reports", "input2.json"),
-  path.resolve(__dirname, "reports", "input3.json"),
-  path.resolve(__dirname, "reports", "input4.json"),
-  path.resolve(__dirname, "reports", "zeroVul.json")
+  path.resolve(__dirname, "reports", "input1.json"), // 1 vul with fix
+  path.resolve(__dirname, "reports", "input2.json"), // 1 vul w/o fix
+  path.resolve(__dirname, "reports", "input3.json"), // 2 vul with fixes
+  path.resolve(__dirname, "reports", "duplicate1.json"), // report contains same vul & fix as input1
+  path.resolve(__dirname, "reports", "zeroVul.json") // 0 vul in report
 ];
 
 describe("gitlab-depscan-merger", () => {
   describe("defaultOutputFile", () => {
     afterEach(async () => {
+      // TO DEBUG
+      // 1. comment out this line
+      // 2. use it.only() to isolate testcase
+      // 3. Run test & find output file on filesystem
+      // 4. replace snapshot file with result & use diff to isolate changes
+      // 5. git restore files & reverse steps once debugged!
       await unlink(defaultOutputFilename);
     });
 
@@ -30,7 +36,6 @@ describe("gitlab-depscan-merger", () => {
       await expect(
         subprocessExec(`${cli} ${inputFiles.slice(0, 2).join(" ")}`)
       ).resolves.toBeTruthy();
-      // snapshot check
       await expect(global.sha256sum(outputFile)).resolves.toEqual(
         await global.sha256sum(expectedOutputFile)
       );
@@ -45,7 +50,6 @@ describe("gitlab-depscan-merger", () => {
       await expect(
         subprocessExec(`${cli} ${inputFiles.slice(0, 3).join(" ")}`)
       ).resolves.toBeTruthy();
-      // snapshot check
       await expect(global.sha256sum(outputFile)).resolves.toEqual(
         await global.sha256sum(expectedOutputFile)
       );
@@ -60,7 +64,6 @@ describe("gitlab-depscan-merger", () => {
       await expect(
         subprocessExec(`${cli} ${inputFiles.slice(0, 4).join(" ")}`)
       ).resolves.toBeTruthy();
-      // snapshot check
       await expect(global.sha256sum(outputFile)).resolves.toEqual(
         await global.sha256sum(expectedOutputFile)
       );
@@ -75,7 +78,6 @@ describe("gitlab-depscan-merger", () => {
       await expect(
         subprocessExec(`${cli} ${inputFiles.join(" ")}`)
       ).resolves.toBeTruthy();
-      // snapshot check
       await expect(global.sha256sum(outputFile)).resolves.toEqual(
         await global.sha256sum(expectedOutputFile)
       );
