@@ -1,0 +1,78 @@
+{
+  "version": "14.0.2",
+  "schema": "https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/raw/v14.0.2/dist/dependency-scanning-report-format.json",
+  "scan": {
+    "start_time": "2021-06-02T11:20:52.992Z",
+    "end_time": "2021-06-02T11:21:00.731Z",
+    "scanner": {
+      "id": "npm-dependency-audit",
+      "name": "NPM Package Audit",
+      "version": "2.1.4",
+      "vendor": {
+        "name": "NPM"
+      }
+    },
+    "status": "success",
+    "type": "dependency_scanning"
+  },
+  "vulnerabilities": [
+    {
+      "id": "npm::advisory:1594::axios",
+      "cve": "npm::advisory:1594::axios",
+      "message": "Service-Side Request Forgery",
+      "description": "Service-Side Request Forgery",
+      "tool": "npm_audit",
+      "category": "dependency_scanning",
+      "name": "axios",
+      "identifiers": [
+        {
+          "type": "cve",
+          "name": "Server-Side Request Forgery",
+          "value": "1594",
+          "url": "https://npmjs.com/advisories/1594"
+        }
+      ],
+      "location": {
+        "file": "package-lock.json",
+        "dependency": {
+          "package": {
+            "name": "axios"
+          },
+          "version": "<0.21.1"
+        }
+      },
+      "severity": "High",
+      "confidence": "High",
+      "scanner": {
+        "id": "npm_audit_advisories",
+        "name": "NPM Audit v2"
+      },
+      "solution": "Upgrade axios to version >=0.21.1",
+      "links": [
+        {
+          "url": "https://npmjs.com/advisories/1594"
+        }
+      ]
+    }
+  ],
+  "remediations": [
+    {
+      "fixes": [{ "id": "npm::advisory:1594::axios" }],
+      "summary": "Upgrade axios to version >=0.21.1"
+    }
+  ],
+  "dependency_files": [
+    {
+      "path": "package-lock.json",
+      "package_manager": "npm",
+      "dependencies": [
+        {
+          "package": {
+            "name": "axios"
+          },
+          "version": "<0.21.1" 
+        }
+      ]
+    }
+  ]
+}
