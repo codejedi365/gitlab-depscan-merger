@@ -2,26 +2,64 @@
   "version": "14.0.2",
   "schema": "https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/raw/v14.0.2/dist/dependency-scanning-report-format.json",
   "scan": {
-    "start_time": "",
-    "end_time": "",
+    "start_time": "2021-06-02T11:28:48",
+    "end_time": "2021-06-02T11:29:54",
     "scanner": {
-      "id": "python-safety",
-      "name": "Safety.py",
-      "version": "",
+      "id": "pyup.io_safety.py",
+      "name": "Safety",
+      "url": "https://pyup.io/safety",
+      "version": "1.10.3",
       "vendor": {
-        "name": ""
+        "name": "PyUp"
       }
     },
     "status": "success",
     "type": "dependency_scanning"
   },
   "vulnerabilities": [
-
+    {
+      "id": "python-safety::warning:25701::django",
+      "cve": "python-safety::warning:25701::django",
+      "message": "Cross-site scripting (XSS) vulnerability",
+      "description": "Cross-site scripting (XSS) vulnerability in Django 1.2.x before 1.2.2 allows remote attackers to inject arbitrary web script or HTML via a csrfmiddlewaretoken (aka csrf_token) cookie.",
+      "category": "dependency_scanning",
+      "name": "django",
+      "identifiers": [
+        {
+          "type": "cve",
+          "name": "Cross-site scripting (XSS) vulnerability",
+          "value": "25701"
+        }
+      ],
+      "location": {
+        "file": "requirements.txt",
+        "dependency": {
+          "package": {
+            "name": "django"
+          },
+          "version": "1.2"
+        }
+      },
+      "confidence": "High",
+      "scanner": {
+        "id": "pyup.io_safety.py",
+        "name": "Safety"
+      }
+    }
   ],
-  "remediations": [
-
-  ],
+  "remediations": [],
   "dependency_files": [
-    
+    {
+      "path": "requirements.txt",
+      "package_manager": "pip",
+      "dependencies": [
+        {
+          "package": {
+            "name": "django"
+          },
+          "version": "<1.2.2"
+        }
+      ]
+    }
   ]
 }
