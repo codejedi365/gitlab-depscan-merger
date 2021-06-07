@@ -2,8 +2,8 @@
   "version": "14.0.2",
   "schema": "https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/raw/v14.0.2/dist/dependency-scanning-report-format.json",
   "scan": {
-    "start_time": "2021-06-02T11:11:12.172Z",
-    "end_time": "2021-06-02T11:32:36.910Z",
+    "start_time": "2021-06-02T11:11:12",
+    "end_time": "2021-06-02T11:32:36",
     "scanner": {
       "id": "npm-dependency-audit",
       "name": "NPM Package Audit",
@@ -21,7 +21,6 @@
       "cve": "npm::advisory:1594::axios",
       "message": "Service-Side Request Forgery",
       "description": "Service-Side Request Forgery",
-      "tool": "npm_audit",
       "category": "dependency_scanning",
       "name": "axios",
       "identifiers": [
@@ -59,7 +58,6 @@
       "cve": "npm::advisory:1179::minimist",
       "message": "Prototype Pollution",
       "description": "Prototype Pollution",
-      "tool": "npm_audit",
       "category": "dependency_scanning",
       "name": "minimist",
       "identifiers": [
@@ -97,7 +95,6 @@
       "cve": "npm::advisory:786::braces",
       "message": "Regular Expression Denial of Service",
       "description": "Regular Expression Denial of Service",
-      "tool": "npm_audit",
       "category": "dependency_scanning",
       "name": "braces",
       "identifiers": [
@@ -135,7 +132,6 @@
       "cve": "npm::advisory:565::ssri",
       "message": "Regular Expression Denial of Service",
       "description": "Regular Expression Denial of Service",
-      "tool": "npm_audit",
       "category": "dependency_scanning",
       "name": "ssri",
       "identifiers": [
@@ -173,7 +169,6 @@
       "cve": "npm::advisory:1594::axios",
       "message": "Service-Side Request Forgery",
       "description": "Service-Side Request Forgery",
-      "tool": "npm_audit",
       "category": "dependency_scanning",
       "name": "axios",
       "identifiers": [
