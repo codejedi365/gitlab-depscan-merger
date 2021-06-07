@@ -2,8 +2,8 @@
   "version": "14.0.2",
   "schema": "https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/raw/v14.0.2/dist/dependency-scanning-report-format.json",
   "scan": {
-    "start_time": "2021-06-02T11:25:27.862Z",
-    "end_time": "2021-06-02T11:26:14.281Z",
+    "start_time": "2021-06-02T11:25:27",
+    "end_time": "2021-06-02T11:26:14",
     "scanner": {
       "id": "npm-dependency-audit",
       "name": "NPM Package Audit",
@@ -21,7 +21,6 @@
       "cve": "npm::advisory:1179::minimist",
       "message": "Prototype Pollution",
       "description": "Prototype Pollution",
-      "tool": "npm_audit",
       "category": "dependency_scanning",
       "name": "minimist",
       "identifiers": [
