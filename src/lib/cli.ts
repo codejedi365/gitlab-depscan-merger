@@ -1,7 +1,7 @@
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 import { normalize } from "path";
-import thisModule from "../package.json";
+import thisModule from "../../package.json";
 
 export interface InputArgs {
   [x: string]: unknown;
