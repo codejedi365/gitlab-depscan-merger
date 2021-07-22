@@ -1,5 +1,5 @@
 import { processCLIArgs } from "../cli";
-import thisModule from "../../package.json";
+import thisModule from "../../../package.json";
 
 const originalProcessArgv = JSON.stringify(process.argv);
 const node$0 = [thisModule.main, ""];
