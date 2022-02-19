@@ -2,15 +2,17 @@
 
 # [Choice] Node.js version (use -bullseye variants on local arm64/Apple Silicon): 16, 14, 12, 16-bullseye, 14-bullseye, 12-bullseye, 16-buster, 14-buster, 12-buster
 ARG VARIANT="16-bullseye"
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${VARIANT}
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+COPY ./library-scripts/*.sh ./library-scripts/*.env /tmp/library-scripts/
 
-# [Optional] Uncomment if you want to install an additional version of node using nvm
-# ARG EXTRA_NODE_VERSION=10
-# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
-
-# [Optional] Uncomment if you want to install more global node packages
-# RUN su node -c "npm install -g <your-package-list -here>"
+RUN apt update && export DEBIAN_FRONTEND=noninteractive \
+    # remove pre-installed yarn (from javascript-node base image) to
+    # prevent developer confusion/misuse, this repo expects npm
+    && apt remove -y yarn \
+    # && apt -y install --no-install-recommends <your-package-list-here>
+  
+    # Ensure github:22 is a known-host
+    && bash /tmp/library-scripts/known-hosts-debian.sh "github.com" \
+    # Cleanup
+    && apt autoremove -y && apt-get clean -y && rm -rf /tmp/library-scripts
