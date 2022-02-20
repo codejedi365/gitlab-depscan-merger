@@ -10,7 +10,8 @@ RUN apt update && export DEBIAN_FRONTEND=noninteractive \
     # remove pre-installed yarn (from javascript-node base image) to
     # prevent developer confusion/misuse, this repo expects npm
     && apt remove -y yarn \
-    # && apt -y install --no-install-recommends <your-package-list-here>
+    # add helpful system packages
+    && apt install --no-install-recommends -y bash-completion \
   
     # Ensure github:22 is a known-host
     && bash /tmp/library-scripts/known-hosts-debian.sh "github.com" \
