@@ -1,0 +1,72 @@
+{
+  "version": "14.0.2",
+  "schema": "https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/raw/v14.0.2/dist/dependency-scanning-report-format.json",
+  "scan": {
+    "start_time": "2021-06-02T11:25:27",
+    "end_time": "2021-06-02T11:26:14",
+    "scanner": {
+      "id": "npm-dependency-audit",
+      "name": "NPM Package Audit",
+      "version": "2.1.4",
+      "vendor": {
+        "name": "NPM"
+      }
+    },
+    "status": "success",
+    "type": "dependency_scanning"
+  },
+  "vulnerabilities": [
+    {
+      "id": "npm::advisory:1179::minimist",
+      "cve": "npm::advisory:1179::minimist",
+      "message": "Prototype Pollution",
+      "description": "Prototype Pollution",
+      "category": "dependency_scanning",
+      "name": "minimist",
+      "identifiers": [
+        {
+          "type": "cve",
+          "name": "Prototype Pollution",
+          "value": "1179",
+          "url": "https://npmjs.com/advisories/1179"
+        }
+      ],
+      "location": {
+        "file": "package-lock.json",
+        "dependency": {
+          "package": {
+            "name": "minimist"
+          },
+          "version": "<0.2.1 || >=1.0.0 <1.2.3"
+        }
+      },
+      "severity": "low",
+      "confidence": "High",
+      "scanner": {
+        "id": "npm_audit_advisories",
+        "name": "NPM Audit v2"
+      },
+      "solution": null,
+      "links": [
+        {
+          "url": "https://npmjs.com/advisories/1179"
+        }
+      ]
+    }
+  ],
+  "remediations": [],
+  "dependency_files": [
+    {
+      "path": "package-lock.json",
+      "package_manager": "npm",
+      "dependencies": [
+        {
+          "package": {
+            "name": "minimist"
+          },
+          "version": "<0.2.1 || >=1.0.0 <1.2.3"
+        }
+      ]
+    }
+  ]
+}
