@@ -1,45 +1,65 @@
-export default {
+module.exports = {
   root: true,
   env: {
     commonjs: true,
-    es2017: true
+    es2017: true,
+    node: true
   },
-  plugins: ["@typescript-eslint"],
   extends: [
+    // JS, MD, MDX
     "eslint:recommended",
-    "airbnb-typescript/base",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "airbnb-base",
     "plugin:mdx/recommended",
     "plugin:prettier/recommended"
   ],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: 8,
-    project: "./tsconfig.json"
-  },
   settings: {
     "mdx/code-blocks": true
   },
-  ignorePatterns: ["dist/**"],
-  overrides: [
-    {
-      files: ["**.test.ts"],
-      env: {
-        jest: true
-      }
-    },
-    {
-      files: ["*.js"],
-      rules: {
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    }
+  ignorePatterns: [
+    "**/node_modules",
+    "dist/**",
+    "**/package-lock.json",
+    "**/tsconfig.json",
+    ".vscode/**",
+    "!.*"
   ],
   rules: {
     "no-console": "off",
     // webpack handles all dependencies to generate remaining bundle
     "import/no-extraneous-dependencies": "off"
-  }
+  },
+  overrides: [
+    {
+      files: ["*.json", ".remarkrc"],
+      plugins: ["json-format"]
+    },
+    {
+      files: ["*.ts"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        ecmaVersion: 8,
+        project: "tsconfig.json"
+      },
+      plugins: ["@typescript-eslint"],
+      extends: [
+        "eslint:recommended",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended"
+      ],
+      rules: {
+        "no-console": "off",
+        // webpack handles all dependencies to generate remaining bundle
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      files: ["**.test.ts"],
+      env: {
+        jest: true
+      }
+    }
+  ]
 };
