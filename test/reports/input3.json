@@ -1,0 +1,124 @@
+{
+  "version": "14.0.2",
+  "schema": "https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/raw/v14.0.2/dist/dependency-scanning-report-format.json",
+  "scan": {
+    "start_time": "2021-06-02T11:11:12",
+    "end_time": "2021-06-02T11:12:04",
+    "scanner": {
+      "id": "npm-dependency-audit",
+      "name": "NPM Package Audit",
+      "version": "2.1.4",
+      "vendor": {
+        "name": "NPM"
+      }
+    },
+    "status": "success",
+    "type": "dependency_scanning"
+  },
+  "vulnerabilities": [
+    {
+      "id": "npm::advisory:786::braces",
+      "cve": "npm::advisory:786::braces",
+      "message": "Regular Expression Denial of Service",
+      "description": "Regular Expression Denial of Service",
+      "category": "dependency_scanning",
+      "name": "braces",
+      "identifiers": [
+        {
+          "type": "cve",
+          "name": "Regular Expression Denial of Service",
+          "value": "786",
+          "url": "https://npmjs.com/advisories/786"
+        }
+      ],
+      "location": {
+        "file": "package-lock.json",
+        "dependency": {
+          "package": {
+            "name": "braces"
+          },
+          "version": "<2.3.1"
+        }
+      },
+      "severity": "Low",
+      "confidence": "High",
+      "scanner": {
+        "id": "npm_audit_advisories",
+        "name": "NPM Audit v2"
+      },
+      "solution": "Upgrade braces to version >=2.3.1",
+      "links": [
+        {
+          "url": "https://npmjs.com/advisories/786"
+        }
+      ]
+    },
+    {
+      "id": "npm::advisory:565::ssri",
+      "cve": "npm::advisory:565::ssri",
+      "message": "Regular Expression Denial of Service",
+      "description": "Regular Expression Denial of Service",
+      "category": "dependency_scanning",
+      "name": "ssri",
+      "identifiers": [
+        {
+          "type": "cve",
+          "name": "Regular Expression Denial of Service",
+          "value": "565",
+          "url": "https://npmjs.com/advisories/565"
+        }
+      ],
+      "location": {
+        "file": "package-lock.json",
+        "dependency": {
+          "package": {
+            "name": "ssri"
+          },
+          "version": ">=5.2.2 <6.0.2 || >=7.0.0 <8.0.1"
+        }
+      },
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "npm_audit_advisories",
+        "name": "NPM Audit v2"
+      },
+      "solution": "Upgrade ssri to version 6.0.2, 7.1.1, 8.0.1",
+      "links": [
+        {
+          "url": "https://npmjs.com/advisories/565"
+        }
+      ]
+    }
+  ],
+  "remediations": [
+    {
+      "fixes": [{ "id": "npm::advisory:786::braces" }],
+      "summary": "Upgrade braces to version >=2.3.1"
+    },
+    {
+      "fixes": [{ "id": "npm::advisory:565::ssri" }],
+      "summary": "Upgrade ssri to version 6.0.2, 7.1.1, 8.0.1"
+    }
+  ],
+  "dependency_files": [
+    {
+      "path": "package-lock.json",
+      "package_manager": "npm",
+      "dependencies": [
+        {
+          "package": {
+            "name": "braces"
+          },
+          "version": "<2.3.1"
+        },
+        {
+          "package": {
+            "name": "ssri"
+          },
+          "version": ">=5.2.2 <6.0.2 || >=7.0.0 <8.0.1"
+        }
+      ]
+    }
+  ]
+}

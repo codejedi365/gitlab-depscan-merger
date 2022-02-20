@@ -2,7 +2,7 @@
  * Merger
  * @codejedi365 | DD MMM YYYY
  */
-import schema from "schema-merge/dist/dependency-scanning-report-format.json";
+import { DependencyScanningReportSchema as schema } from "@gitlab-org/security-report-schemas";
 
 // Check that both match schema v14
 // provide warning if not but attempt to find valid keys, ignore errors and do the best possible
