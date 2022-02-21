@@ -29,17 +29,17 @@
     "dist/cli.min.js"
   ],
   "scripts": {
-    "build": "npm run --silent build:prod --",
-    "build:watch": "npm run --silent build:prod -- --watch",
-    "build:prod": "webpack --mode=production --node-env=production",
+    "build": "webpack --mode=production --node-env=production",
+    "build-watch": "npm run --silent build -- --watch",
+    "check": "run-p --silent check:*",
+    "check:security:dependencies": "npm audit --audit-level=moderate",
+    "check:stale": "npm outdated",
     "format": "npm run --silent lint -- --fix",
     "format:file": "npm run --silent lint:file -- --fix",
     "lint": "npm run --silent lint:file -- . --",
     "lint:file": "eslint",
     "test": "run-s test:*",
     "test:unit": "jest --runInBand",
-    "test:security:dependencies": "npm audit --audit-level=moderate",
-    "test:stale": "npm outdated",
     "prepublishOnly": "run-s build test:*",
     "unit-test-watch": "npm run --silent test:unit -- --watch",
     "watch": "webpack --watch"
