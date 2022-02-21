@@ -21,12 +21,13 @@
   "license": "MIT",
   "author": "codejedi365 <codejedi365@gmail.com> (https://github.com/codejedi365)",
   "contributors": [],
-  "main": "dist/cli.min.js",
+  "main": "dist/cli.min.cjs",
+  "types": "dist/cli.d.ts",
   "bin": {
-    "depscan-merger": "dist/cli.min.js"
+    "depscan-merger": "dist/cli.min.cjs"
   },
   "files": [
-    "dist/cli.min.js"
+    "dist/**"
   ],
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
