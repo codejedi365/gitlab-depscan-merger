@@ -42,8 +42,9 @@
     "test": "run-s --silent build test:*",
     "test:unit": "jest --selectProjects UNIT",
     "test:system": "jest --selectProjects SYSTEM --coverage=false",
-    "prepublishOnly": "run-s test",
-    "tdd-watch": "npm run --silent test:unit -- --watch"
+    "prepare": "is-ci || husky install",
+    "prepublishOnly": "is-ci && run-s test",
+    "tdd-watch": "npm run test:unit -- --watch"
   },
   "devDependencies": {
     "@codejedi365/jest-serial-runner": "^2.0.0",
@@ -67,6 +68,8 @@
     "eslint-plugin-mdx": "^1.13.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-webpack-plugin": "^2.5.4",
+    "husky": "^7.0.4",
+    "is-ci": "^3.0.1",
     "jest": "^27.5.1",
     "jest-extended": "^1.2.1",
     "npm-run-all": "^4.1.5",
