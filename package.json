@@ -38,11 +38,11 @@
     "format:file": "npm run --silent lint:file -- --fix",
     "lint": "npm run --silent lint:file -- . --",
     "lint:file": "eslint",
-    "test": "run-s test:*",
-    "test:unit": "jest --runInBand",
-    "prepublishOnly": "run-s build test:*",
-    "unit-test-watch": "npm run --silent test:unit -- --watch",
-    "watch": "webpack --watch"
+    "test": "run-s --silent build test:*",
+    "test:unit": "jest --selectProjects UNIT",
+    "test:system": "jest --selectProjects SYSTEM --coverage=false",
+    "prepublishOnly": "run-s test",
+    "tdd-watch": "npm run --silent test:unit -- --watch"
   },
   "devDependencies": {
     "@codejedi365/jest-serial-runner": "^2.0.0",
