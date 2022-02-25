@@ -126,8 +126,8 @@ activate_nvm_env() {
 
   # This section was developed for compatibility with nvm 0.38.0
   # direct calls to internal non-api functions used, could be problematic with updates
-  currentNodeVer="$(nvm current)"
-  NVM_RC_VERSION="$(cd $projDir 2>/dev/null && NVM_SILENT=1 nvm_rc_version && printf '%s' \"$NVM_RC_VERSION\" || :;)"
+  currentNodeVer="$(nvm current | grep -v 'system' || node --version)"
+  NVM_RC_VERSION="$(cd "$projDir" 2>/dev/null && NVM_SILENT=1 nvm_rc_version && (printf '%s' "$NVM_RC_VERSION" || :;))"
   MIN_DEV_VERSION="$(nvm_format_version "$NVM_RC_VERSION" || :;)"
   MAX_DEV_VERSION="$(nvm version-remote "$NVM_RC_VERSION" || :;)"
   unset -v NVM_RC_VERSION projDir
@@ -153,7 +153,7 @@ activate_nvm_env() {
       return 0 # Abort action
     fi
     VERSION=""
-    VERSION="$(replay "$output" | grep 'nvm install' | sed -E 's/.*install v([0-9]+\.[0-9]+\.[0-9]+).*/\1/')"
+    VERSION="$(replay "$output" | grep 'nvm install' | sed -E 's/.*install (v?[0-9]+(\.[0-9]+){0,2}).*/\1/')"
     # enable user input, git by default runs in non-interactive mode
     if ! exec </dev/tty; then
       unset -v output VERSION
