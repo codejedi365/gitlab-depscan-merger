@@ -20,7 +20,7 @@ error() {
 
 # Prints and runs command
 explicit_run_cmd() {
-  cmd="$1"
+  cmd="$*"
   log "$> $cmd"
   eval "$cmd"
 }
