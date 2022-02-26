@@ -30,13 +30,13 @@ function buildConfig(env) {
         {
           test: /(?<!\.test)\.(ts)$/i,
           loader: "ts-loader",
-          exclude: ["/node_modules/", "test/", "__tests__/"]
+          exclude: ["/node_modules/", "tests/", "__tests__/"]
         }
       ]
     },
     optimization: {
       // minimize & mangle the output files (TerserPlugin w/ webpack@v5)
-      minimize: true,
+      minimize: isProduction,
       // determine which exports are used by modules and removed unused ones
       usedExports: true
     },

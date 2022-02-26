@@ -1,0 +1,11 @@
+[alias]
+    s = status -s
+    graph = log --oneline --decorate --graph --all -20
+
+[commit]
+    gpgsign = true
+    template = /dev/null # No Template b/c commitizen generates commit
+
+# ======================================= #
+# DO NOT ADD user.signingkey TO THIS FILE #
+# ======================================= #

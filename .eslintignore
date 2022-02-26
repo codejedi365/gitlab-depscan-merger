@@ -1,0 +1,22 @@
+# Start by ignoring all files
+*
+# Except supported file extensions & hidden counterparts
+!*.ts
+!*.js
+!*.md
+!.*.ts
+!.*.js
+# enable directory parsing
+!*/
+
+# But still don't lint any matches in:
+# directories
+.git/
+.vscode/
+dist/
+coverage/
+node_modules/
+
+# or these specific files:
+package-lock.json
+tsconfig.json
